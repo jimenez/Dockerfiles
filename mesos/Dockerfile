@@ -1,0 +1,34 @@
+#Mesos image
+
+FROM jimenez/iwyu
+MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
+
+RUN apt-get update -q
+
+#Install Dependencies
+RUN apt-get -qy install         \
+    autoconf                    \
+    automake                    \
+    ca-certificates             \
+    git-core                    \
+    libcurl4-nss-dev            \
+    libsasl2-dev                \
+    libtool                     \
+    --no-install-recommends
+
+#Clone mesos repository
+RUN git clone http://git-wip-us.apache.org/repos/asf/mesos.git
+
+#Bootstrap
+RUN cd mesos && ./bootstrap
+
+#Configure
+RUN mkdir /mesos/build && cd mesos/build && ../configure --disable-java --disable-python --disable-optimize --without-included-zookeeper
+
+#Make
+RUN cd /mesos/build && make -j 16
+
+#Master and slave ports 
+EXPOSE 5050 5051
+
+WORKDIR /mesos
