@@ -1,6 +1,6 @@
-#Mesos image
+#Mesos image from clang 3.4
 
-FROM jimenez/iwyu
+FROM jimenez/iwyu:clang_3.4
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q
