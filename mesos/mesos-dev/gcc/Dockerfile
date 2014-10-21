@@ -19,16 +19,21 @@ RUN apt-get -qy install         \
     make                        \
     --no-install-recommends
 
-#Clone mesos repository
-RUN git clone http://git-wip-us.apache.org/repos/asf/mesos.git
-
-#Bootstrap
-RUN cd mesos && ./bootstrap
-
-#Configure
-RUN mkdir /mesos/build && cd mesos/build && ../configure --disable-java --disable-python --disable-optimize --without-included-zookeeper
-
-#Make
-RUN cd /mesos/build && make -j 4
+#Creating a Mesos repository
+RUN mkdir /mesos && chown daemon /mesos
 
 WORKDIR /mesos
+
+USER daemon
+
+#Clone mesos repository
+RUN git clone http://git-wip-us.apache.org/repos/asf/mesos.git .
+
+#Bootstrap
+RUN ./bootstrap
+
+#Configure
+RUN mkdir build && cd build && ../configure --disable-java --disable-python --disable-optimize --without-included-zookeeper
+
+#Make
+RUN cd build && make -j 4
