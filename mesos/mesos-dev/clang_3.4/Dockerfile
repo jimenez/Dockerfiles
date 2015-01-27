@@ -11,8 +11,10 @@ RUN apt-get -qy install         \
     automake                    \
     ca-certificates             \
     git-core                    \
+    libapr1-dev			\
     libcurl4-nss-dev            \
     libsasl2-dev                \
+    libsvn-dev			\
     libtool                     \
     --no-install-recommends
 
