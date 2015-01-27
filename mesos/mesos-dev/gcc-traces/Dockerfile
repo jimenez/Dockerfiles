@@ -39,4 +39,4 @@ RUN ./bootstrap
 RUN mkdir build && cd build && ../configure --disable-java --disable-python --disable-optimize --without-included-zookeeper
 
 #Make
-RUN cd build && make -j 10
+RUN cd build && make -j 4
