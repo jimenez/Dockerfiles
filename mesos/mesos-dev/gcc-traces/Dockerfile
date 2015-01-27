@@ -1,6 +1,7 @@
 #Mesos image from gcc 4.7
 
 FROM ubuntu:14.04
+
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q
