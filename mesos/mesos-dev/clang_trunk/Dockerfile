@@ -14,6 +14,7 @@ RUN apt-get -qy install         \
     libapr1-dev			\
     libcurl4-nss-dev            \
     libsasl2-dev                \
+    libsasl2-modules		\
     libsvn-dev			\
     libtool                     \
     --no-install-recommends

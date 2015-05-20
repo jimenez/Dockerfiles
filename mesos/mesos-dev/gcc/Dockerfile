@@ -15,6 +15,7 @@ RUN apt-get -qy install         \
     git-core                    \
     libcurl4-nss-dev            \
     libsasl2-dev                \
+    libsasl2-modules		\
     libtool                     \
     libsvn-dev			\
     libapr1-dev			\
