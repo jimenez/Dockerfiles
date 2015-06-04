@@ -1,6 +1,6 @@
 #Mesos image from gcc 4.7
 
-FROM ubuntu:14.04
+FROM ubuntu:15.04
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q
@@ -13,13 +13,14 @@ RUN apt-get -qy install         \
     ca-certificates             \
     gdb                         \
     git-core                    \
+    make                        \
+    libapr1-dev			\
     libcurl4-nss-dev            \
     libsasl2-dev                \
     libsasl2-modules		\
     libtool                     \
     libsvn-dev			\
-    libapr1-dev			\
-    make                        \
+    zlib1g-dev			\
     --no-install-recommends
 
 #Creating a Mesos repository

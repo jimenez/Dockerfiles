@@ -1,6 +1,6 @@
 #Mesos image from clang trunk
 
-FROM jimenez/iwyu:clang_trunk
+FROM jimenez/clang_trunk
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q
@@ -10,6 +10,7 @@ RUN apt-get -qy install         \
     autoconf                    \
     automake                    \
     ca-certificates             \
+    clang-format-3.5		\
     git-core                    \
     libapr1-dev			\
     libcurl4-nss-dev            \
@@ -17,6 +18,7 @@ RUN apt-get -qy install         \
     libsasl2-modules		\
     libsvn-dev			\
     libtool                     \
+    zlib1g-dev			\
     --no-install-recommends
 
 #Creating a Mesos repository
