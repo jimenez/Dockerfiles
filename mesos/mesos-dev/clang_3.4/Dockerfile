@@ -1,6 +1,6 @@
 #Mesos image from clang 3.4
 
-FROM jimenez/clang_3.4
+FROM jimenez/clang
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q

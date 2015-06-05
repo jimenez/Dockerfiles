@@ -1,6 +1,6 @@
 #Mesos image from clang trunk
 
-FROM jimenez/clang_trunk
+FROM jimenez/clang
 MAINTAINER Isabel Jimenez <contact@isabeljimenez.com>
 
 RUN apt-get update -q
