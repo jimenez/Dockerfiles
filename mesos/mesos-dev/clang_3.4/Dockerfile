@@ -27,8 +27,6 @@ RUN mkdir /mesos && chown daemon /mesos
 
 WORKDIR /mesos
 
-USER daemon
-
 #Clone mesos repository
 RUN git clone http://git-wip-us.apache.org/repos/asf/mesos.git .
 
