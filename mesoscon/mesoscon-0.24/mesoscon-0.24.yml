@@ -1,0 +1,32 @@
+master:
+  user: root
+  image: jimenez/mesoscon-0.24-master
+  command: --ip=0.0.0.0 --work_dir=/ --registry=in_memory
+  ports:
+    - 5050:5050
+
+agent1:
+  user: root
+  image: jimenez/mesoscon-0.24-agent
+  links:
+    - master:master
+  command: --master=master:5050 --containerizers=docker,mesos
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/bin/docker
+  ports:
+    - 5051:5051
+
+agent2:
+  user: root
+  image: jimenez/mesoscon-0.24-agent
+  links:
+    - master:master
+  command: --master=master:5050 --containerizers=docker,mesos
+  volumes:
+    - /sys/fs/cgroup:/sys/fs/cgroup
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/bin/docker
+  ports:
+    - 5051:5052
